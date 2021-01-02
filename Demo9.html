@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo9</title>
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
+  <script src="./lib/vue@3.0.4.js"></script>
+</head>
+<body>
+    <div id="app">
+      <!-- <h2 v-on:click="handleItemClick">{{ message }}</h2> -->
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: '<i>jspang.com</i>'
+          }
+        },
+        // template: `<h2 v-on:click="handleItemClick" v-html="message"></h2>`,
+        template: `<h2 v-on:click="handleItemClick" v-html="message" v-once></h2>`,
+        methods: {
+          handleItemClick() {
+            this.message = this.message === 'jspang.com' ? '技术胖' : 'jspang.com'
+          }
+        }
+      })
+      const vm = app.mount("#app")
+      console.log(vm)
+
+      // vm.$data.message = '1234'
+    </script>
+</body>
+</html>
