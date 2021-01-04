@@ -77,6 +77,10 @@ mounted() { console.log('mounted') }
 
 ### v-bind指令的使用
 
+## 10 模板动态参数和阻止默认事件
+
+## 模板中使用条件判断
+
 ## 参考
 
 [技术胖](http://jspang.com/detailed?id=68#toc21)
