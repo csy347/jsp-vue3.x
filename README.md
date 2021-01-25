@@ -63,6 +63,18 @@ mounted() { console.log('mounted') }
 
 这两个生命周期函数是在Vue销毁时自动执行的函数，一个是销毁前执行，一个是销毁后执行。
 
+``` js
+  name: '',
+  components: {},
+  data() {},
+  computed: {},
+  watch: {},
+  created() {},
+  mounted() {},
+  methods: {},
+  destoryed() {}
+```
+
 ## 09 插值表达式
 
 ### 插值表达式是什么？
@@ -79,6 +91,42 @@ mounted() { console.log('mounted') }
 
 ## 10 模板动态参数和阻止默认事件
 
+**事件动态绑定:**
+
+``` js
+data() {
+    return {
+        message: 'jspang.com',
+        name: 'title',
+        event: 'click'
+    }
+},
+template: `
+    <h2 @[event]="handleClick" :[name]="message">
+        {{ message }}
+    </h2>
+`
+```
+
+**阻止默认事件:**
+
+``` js
+methods: {
+    handleButton(e) {
+        e.preventDefault() // 阻止默认事件 比如form href
+    }
+}
+```
+
+后续会介绍：6种
+
+- stop修饰符 @click.stop
+- self修饰符 @click.self
+- prevent修饰符 @click.prevent
+- capture修饰符 @click.capture
+- once修饰符 事件只执行一次
+- passive修饰符 解决滚动时性能的修饰符
+
 ## 11 模板中使用条件判断
 
 ## 12 计算属性-computed
@@ -88,6 +136,78 @@ mounted() { console.log('mounted') }
 ## 14 样式绑定详细讲解
 
 ## 15 样式绑定-进阶
+
+## 16
+
+## 17
+
+## 18
+
+## 19 [基础]绑定事件详讲-方法和参数
+
+``` js
+// @click="addCountClick"
+addCountClick() {
+    this.count++
+}
+
+// @click="addCountClick(3)"
+addCountClick(num) {
+    this.count += num
+}
+
+// 查看事件中event对象
+addCountClick(event) {
+    this.count++
+    console.log(event)
+}
+
+// 多个参数的情况下使用event
+@click="addCountClick(3, $event)"
+addCountClick(num, event) {
+    this.count += num
+    console.log(event.target)
+}
+```
+
+一个按钮调用两次方法
+
+``` js
+// <button @click="handleBtnClick1(), handleBtnClick2()">增加</button>
+// 一次触发两个事件方法，需要用,逗号，把事件隔开，然后每个事件后边必须加上()才能起作用
+
+handleBtnClick1() {
+    alert(1)
+}
+handleBtnClick2() {
+    alert(2)
+}
+```
+
+## 20 [基础]绑定事件详讲-事件修饰符
+
+- stop修饰符 @click.stop
+- self修饰符 @click.self
+- prevent修饰符 @click.prevent
+- capture修饰符 @click.capture
+- once修饰符 事件只执行一次
+- passive修饰符 解决滚动时性能的修饰符
+
+## 21 [基础]绑定事件详讲-按键、鼠标修饰符
+
+## 22 [基础]表单数据的双绑定-1
+
+- input
+- textarea
+- checkbox
+- radio
+
+## 23 [基础]表单数据的双绑定-2
+
+- checkbox true-value/false-value
+- lazy
+- number
+- trim
 
 ## 模板中使用条件判断
 

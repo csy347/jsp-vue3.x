@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo22</title>
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
+  <script src="./lib/vue@3.0.4.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        name: '12',
+        checked: true,
+        checks: [],
+        radios: ''
+      }
+    },
+    template: `
+      <div>
+        <div>{{name}}</div>
+        <input v-model="name" />
+        <div>{{checked}}</div>
+        <input type="checkbox" v-model="checked" />
+        <div>
+          {{checks}}
+          <br />
+          <input type="checkbox" v-model="checks" value="一一" /> 一
+          <input type="checkbox" v-model="checks" value="二二" /> 二
+          <input type="checkbox" v-model="checks" value="三三" /> 三
+        </div>
+        <div>
+          {{radios}}
+          <br />
+          <input type="radio" v-model="radios" value="一一" /> 一
+          <input type="radio" v-model="radios" value="二二" /> 二
+          <input type="radio" v-model="radios" value="三三" /> 三
+        </div>
+      </div>
+    `,
+    methods: {},
+    watch: {},
+    computed: {}
+  })
+  const vm = app.mount("#app")
+</script>
+</html>

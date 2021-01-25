@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo23</title>
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
+  <script src="./lib/vue@3.0.4.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        name: '1',
+        checked: true,
+        message: '12',
+        message1: 'trim.com'
+      }
+    },
+    template: `
+      <div>
+        <div>{{name}}</div>
+        <div>{{checked}}</div>
+        <input type="checkbox" v-model="checked" true-value="1" false-value="2" />
+        <div>
+          {{typeof message}}
+          <input v-model.number="message" />
+        </div>
+        <div>
+          {{message1}}
+          <input v-model.trim="message1" />
+        </div>
+      </div>
+    `,
+    methods: {},
+    watch: {},
+    computed: {}
+  })
+  const vm = app.mount("#app")
+</script>
+</html>
